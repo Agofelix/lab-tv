@@ -1,0 +1,464 @@
+<!--
+Nome progetto: LABTV
+Descrizione: Realizzare un sito web dedicato al settore della distribuzione online di film e serie TV
+Modello Layout: 'Amazon Prime Video'
+Sviluppatore: Agostino Feliciani  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <script src="../js/trailer.js"></script>
+    <script src="../js/slider.js"></script>
+    <script src="../js/forms.js"></script>
+    <title>LABTV</title>
+</head>
+
+    <main role="main">   
+        <header>
+            <nav>
+                <a href=""><div id="logo"><img src="../../multimedia/img/logo-tipo.png"></div></a>                    
+                <ul id="menu">
+                    <li><a href="./index.html">Home</a></li>
+                    <ul class="target"> <!--gestione finestra login con tecnica CSS target-->
+                        <li id="popup-container">
+                            <a href="#popup-container">Login</a>
+                            <article>
+                                <div class="back"></div> 
+                                <div class="login-container">
+                                    <a class="icon" href="">x</a>          
+                                    <h1>Accedi</h1>
+                                    <p>Inserisci le credenziali per accedere alla tua area riservata</p>
+                                    <form name="user" id="login">
+                                        <label for="email">Email</label>
+                                        <input type="text" placeholder="Inserisci la tua email" id="email" name="email">
+                                        <label for="password">Password</label>
+                                        <input type="password" placeholder="Inserisci la password" id="password" name="password">
+                                        <button type="submit">Accedi</button>
+                                        <a>Ricorda password</a>
+                                        <div>Non hai un account?<a id="register-now"> Registrati subito</a></div>
+                                    </form>
+                                    <form name="register" id="new-account">
+                                        <label for="newemail">Email</label>
+                                        <input type="text" placeholder="Inserisci la tua email" id="newemail" name="newemail">
+                                        <label for="newpassword">Password</label>
+                                        <input type="password" placeholder="La password deve contenere almeno 8 caratteri alfanumerici" id="newpassword" name="newpassword">
+                                        <label for="newpassword2">Ripeti Password</label>
+                                        <input type="password" placeholder="La password deve contenere almeno 8 caratteri alfanumerici" id="newpassword2" name="newpassword2">
+                                        <div class="policy">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eaque delectus modi neque, fuga dolore doloremque, corrupti, unde minus perspiciatis saepe adipisci reprehenderit fugit eveniet illum. Natus porro distinctio dicta!
+                                            Itaque, illum excepturi quod saepe delectus alias aliquam veniam atque ipsam nulla reprehenderit veritatis pariatur blanditiis at, esse quisquam laborum quae fugit eius inventore earum impedit quos! Voluptates, voluptate necessitatibus!
+                                            Vero nulla, molestiae libero provident harum optio ipsa quasi deleniti sit illum. Odio quia laudantium tempore impedit perspiciatis, ad neque iure, aperiam est aliquid et ullam. In eos porro atque!</div>
+                                        <span><input type="checkbox" name="privacy" required> Accetto l'informativa sulla Privacy</span>
+                                        
+                                        <button type="submit">Registrati</button>
+                                    </form>
+                                    <div class="spinner"></div>
+                                    <div class="error"></div>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                    <li id="contact-link"><a href="#contatti">Contatti</a></li>
+                </ul>
+                
+            </nav>        
+        </header>
+
+        <div class="back"></div> 
+
+        <div id="slider-container">  
+            <div class="icon arrow previous">f</div>   
+            <div class="icon arrow next">e</div>
+            <ul id="navigator">
+                <li class="icon focus">g</li>
+                <li class="icon nextChild">g</li>
+                <li class="icon">g</li>
+                <li class="icon">g</li>
+                <li class="icon">g</li>
+                <li class="icon">g</li>
+            </ul>       
+            <div id="slider">   
+                <img src="../../multimedia/img/slider-1.webp" class="visible">
+                <img src="../../multimedia/img/slider-2.webp" class="next">
+                <img src="../../multimedia/img/slider-3.webp">
+                <img src="../../multimedia/img/slider-4.webp">
+                <img src="../../multimedia/img/slider-5.webp">
+                <img src="../../multimedia/img/slider-6.webp"> 
+            </div>
+        </div>
+
+        <div class="slider-video">
+            <div class="icon arrow previous">f</div>   
+            <div class="icon arrow next">e</div>
+            <h3><span class="labtv-color">LABTV prime</span>Titoli in esclusiva</h3> 
+            <div class="card-container">
+                    <div class="card">  
+                        <div class="videocontainer">     
+                                <video preload="metadata" muted>
+                                    <source src="../../multimedia/video/clip1.mp4" type="video/mp4">
+                                </video>
+                                <div class="icon audio">m</div>
+                                <img src="../../multimedia/img/poster1.jpg">  
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>Il ribelle</h5>
+                                    <p>
+                                    Eric, giovane adolescente tormentato, viene trasferito in un carcere per adulti. Il nuovo ambiente serve però solo ad amplificare il suo comportamento ultraviolento...
+                                    </p>
+                                </div>
+                        </div>  
+                    </div>
+
+                    <div class="card">  
+                        <div class="videocontainer">  
+                                <video preload="metadata" muted>
+                                    <source src="../../multimedia/video/clip2.mp4" type="video/mp4">
+                                </video>
+                                <div class="icon audio">m</div>
+                                <img src="../../multimedia/img/poster2.jpg">   
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>Harry Potter e la pietra filosofale
+                                    </h5>
+                                    <p>
+                                        Dall'incantevole bestseller di J.K. Rowling, Harry Potter e la pietra filosofale è puro incantesimo visivo. Per l'esperienza più magica che sia mai capitata in casa vostra.                                    
+                                    </p>
+                                </div>
+                        </div>    
+                    </div>
+
+                    <div class="card"> 
+                        <div class="videocontainer">  
+                                <video preload="metadata" muted>
+                                    <source src="../../multimedia/video/clip3.mp4" type="video/mp4">
+                                </video>
+                                <div class="icon audio">m</div>
+                                <img src="../../multimedia/img/poster3.jpg">   
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>Figli</h5>
+                                    <p>
+                                        I figli ti invecchiano, ma d’altra parte il tuo cuore non è mai stato così grande. Sara (Paola Cortellesi) e Nicola (Valerio Mastandrea) sono sposati e innamorati. Hanno una bambina di 6 anni e una vita felice.
+                                    </p>
+                                </div>
+                        </div> 
+                    </div>
+                    
+                    <div class="card">
+                        <div class="videocontainer">     
+                                <video preload="metadata" muted>
+                                    <source src="../../multimedia/video/clip4.mp4" type="video/mp4">
+                                </video>
+                                <div class="icon audio">m</div>
+                                <img src="../../multimedia/img/poster4.jpg">
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>Spencer</h5>
+                                    <p>
+                                        Il matrimonio fra la Principessa Diana e il Principe Carlo si è da tempo trasformato in una relazione fredda e distante. Nonostante le voci di tradimenti e di un divorzio siano già in circolazione, le feste natalizie alla tenuta reale sanciscono una tregua...
+                                    </p>
+                                </div>
+                        </div>    
+                    </div>
+
+                    <div class="card">
+                        <div class="videocontainer">    
+                                <video preload="metadata" muted>
+                                    <source src="../../multimedia/video/clip5.mp4" type="video/mp4">
+                                </video> 
+                                <div class="icon audio">m</div>
+                                <img src="../../multimedia/img/poster5.jpg">
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>Warrior</h5>
+                                    <p>
+                                        Due fratelli: uno disertore di guerra e prodigio del wrestling, l'altro ex lottatore e professore di fisica. Entrambi rancorosi l'uno dell'altro, partecipano alla più grande competizione di MMA della storia...
+                                    </p>
+                                </div>
+                        </div>    
+                    </div>
+                    
+            </div>     
+            <div class="card-container next">
+                <div class="card-container">
+                    <a href="./episodes.html">
+                        <div class="card">      
+                            <div class="videocontainer">     
+                                    <img src="../../multimedia/img/poster6.jpg">
+                                    <div class="sinox-container">
+                                        <div class="icon">p</div><span>Riproduci</span> 
+                                        <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                        <h5>The Boys</h5>
+                                        <p>
+                                            THE BOYS è uno sguardo irriverente a ciò che succede quando i supereroi, che sono popolari come le celebrità, influenti come i politici e venerati come dei, abusano dei loro superpoteri invece di utilizzarli a fin di bene. Quando i The Boys si lanciano in una missione eroica per svelare la verità riguardo ai "Sette" sostenuti dalla Vought, inizia una lotta tra senza poteri e superpotenti.
+                                        </p>
+                                    </div>
+                            </div>  
+                        </div>
+                    </a>
+
+                    <div class="card">  
+                        <div class="videocontainer">  
+                                <img src="../../multimedia/img/poster7.jpg">   
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>Il Padrino</h5>
+                                    <p>
+                                        Un freddo ritratto dell'ascesa e della temuta caduta della famiglia Corleone in America, insieme al racconto dei tremendi affari criminali cui il clan siciliano è dedito.
+                                    </p>
+                                </div>
+                        </div>    
+                    </div>
+
+                    <div class="card"> 
+                        <div class="videocontainer">  
+                                <img src="../../multimedia/img/poster8.jpg">   
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>Undisputed 2</h5>
+                                    <p>
+                                        Il campione dei pesi massimi della boxe George Chambers, si trova in Russia per disputare incontri di pugilato, quando viene nuovamente incastrato per possesso illecito di droga. Da qui ricominciano le sue avventure con gli incontri clandestini disputati nel carcere di massima sicurezza. Il campione in carica è il russo Yuri Boyka imbattuto da ormai troppo tempo.
+                                    </p>
+                                </div>
+                        </div> 
+                    </div>
+                    
+                    <div class="card">
+                        <div class="videocontainer">     
+                                <img src="../../multimedia/img/poster9.jpg">
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>La paranza dei bambini</h5>
+                                    <p>
+                                        Napoli 2018. Nicola, Tyson, Biscottino, Lollipop, O'Russ, Briatò vogliono diventare ricchi alla svelta, comprare abiti firmati e motorini nuovi. In particolare Nicola, la cui madre gestisce una piccola tintoria non resiste alla tentazione di entrare a far parte di una 'famiglia' camorrista.
+                                    </p>
+                                </div>
+                        </div>    
+                    </div>
+
+                    <div class="card">
+                        <div class="videocontainer">     
+                                <img src="../../multimedia/img/poster10.jpg">
+                                <div class="sinox-container">
+                                    <div class="icon">p</div><span>Riproduci</span> 
+                                    <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                    <h5>The Kelly Gang</h5>
+                                    <p>
+                                        L’ascesa e la caduta del famigerato bandito australiano Ned Kelly. La storia del giovane fuorilegge che riunì un gruppo di guerriglieri per organizzare una ribellione contro i soprusi dell’impero britannico.
+                                    </p>
+                                </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="slider-video">
+            <h3><span class="labtv-color">LABTV Original</span>Film che potrebbero piacerti</h3> 
+            <div class="card-container">
+                <div class="card">      
+                    <div class="videocontainer">     
+                            <img src="../../multimedia/img/poster16.jpg">
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>Avatar</h5>
+                                <p>
+                                    Un eroe dubbioso. Un viaggio epico. La scelta tra una vita lasciata alle spalle e l’incredibile nuovo mondo che sarà presto la sua casa. Rivivete Avatar di James Cameron – la più grande avventura di tutti i tempi.
+                                </p>
+                            </div>
+                    </div>  
+                </div>
+
+                <div class="card">  
+                    <div class="videocontainer">  
+                            <img src="../../multimedia/img/poster17.jpg">   
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>Il signore degli anelli - La compagnia dell'anello</h5>
+                                <p>
+                                    4 Premi Oscar per il cult fantasy tratto dalle pagine di J. R. R. Tolkien. Uomini ed Elfi alleati contro un Anello dal potere oscuro.
+                                </p>
+                            </div>
+                    </div>    
+                </div>
+
+                <div class="card"> 
+                    <div class="videocontainer">  
+                            <img src="../../multimedia/img/poster18.jpg">   
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>Matrix Resurrections</h5>
+                                <p>
+                                    "Matrix Resurrections", l'attesissimo quarto film della rivoluzionaria serie, riunisce le star originali Keanu Reeves e Carrie-Anne Moss negli iconici ruoli che li hanno resi famosi.
+                                </p>
+                            </div>
+                    </div> 
+                </div>
+                
+                <div class="card">
+                    <div class="videocontainer">     
+                            <img src="../../multimedia/img/poster19.jpg">
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>The Batman</h5>
+                                <p>
+                                    Un killer prende di mira l'élite di Gotham, spingendo Batman a indagare. Man mano che le prove si accumulano, l'eroe dovrà stringere rapporti, smascherare il colpevole e fare giustizia.
+                                </p>
+                            </div>
+                    </div>    
+                </div>
+
+                <div class="card">
+                    <div class="videocontainer">     
+                            <img src="../../multimedia/img/poster20.jpg">
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>Titanic</h5>
+                                <p>
+                                    Rose (Kate Winslet) è una giovane donna dell'alta società che si sente soffocata dal suo arrogante promesso sposo. Jack (Leonardo DiCaprio) è un artista dallo spirito libero che apre Rose al mondo e le ruba il cuore...
+                            </div>
+                    </div>    
+                </div>
+                    
+            </div>    
+        </div>
+
+        <div class="slider-video">
+            <h3><span class="labtv-color">LABTV</span>Continua a guardare</h3> 
+            <div class="card-container">
+                <div class="card">      
+                    <div class="videocontainer">     
+                            <img src="../../multimedia/img/poster11.jpg">
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>House Of Gucci</h5>
+                                <p>
+                                    Ispirato alla vera storia della famiglia a capo dell'impero della moda italiana. Quando Patrizia Reggiani entra nella famiglia Gucci, la sua sfrenata ambizione ne svela i segreti, innescando una spirale di tradimento, decadenza e morte.
+                                </p>
+                            </div>
+                    </div>  
+                </div>
+
+                <div class="card">  
+                    <div class="videocontainer">  
+                            <img src="../../multimedia/img/poster12.jpg">   
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>James May - Il nostro agente in Italia</h5>
+                                <p>
+                                    James May ha una missione in Italia: esplorare la storia, la cultura, il paesaggio, l'industria e la gente di questo grande Paese. Riuscirà un maldestro uomo inglese di mezza età a scoprire i segreti della "dolce vita"?
+                                </p>
+                            </div>
+                    </div>    
+                </div>
+
+                <div class="card"> 
+                    <div class="videocontainer">  
+                            <img src="../../multimedia/img/poster13.jpg">   
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>Libertà Live</h5>
+                                <p>
+                                    Libertà di pensiero, libertà di stampa libertà d'espressione, ma anche la libertà che ci è stata negata in questi ultimi tempi di covid. La libertà è il filo conduttore del nuovo spettacolo di Alessandro Siani.
+                                </p>
+                            </div>
+                    </div> 
+                </div>
+                
+                <div class="card">
+                    <div class="videocontainer">     
+                            <img src="../../multimedia/img/poster14.jpg">
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>Press Play - La musica della nostra vita</h5>
+                                <p>
+                                    Una donna scopre di poter salvare l'amore della sua vita, quando realizza che la musicassetta che avevano realizzato anni addietro assieme ha il potere di farla viaggiare nel tempo.
+                                </p>
+                            </div>
+                    </div>    
+                </div>
+
+                <div class="card">
+                    <div class="videocontainer">     
+                            <img src="../../multimedia/img/poster15.jpg">
+                            <div class="sinox-container">
+                                <div class="icon">p</div><span>Riproduci</span> 
+                                <h5 class="labtv-color">Incluso con LABTV prime</h5>
+                                <h5>Tutto è possibile</h5>
+                                <p>
+                                    Quando il timido liceale all'ultimo anno, Khal, scrive in anonimo su un forum della sua cotta per una spigliata trans, i commenti positivi, lo spingono a chiederle di uscire, dando vita a una storia deliziosamente travolgente della Generazione Z.
+                                </p>
+                            </div>
+                    </div>    
+                </div>
+                    
+            </div>    
+        </div>
+        
+        <footer>
+            <a name="contatti"></a><!--anchor menu-->
+
+            <form name="contact" id="contatti">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11883.55859941184!2d12.4527504!3d41.8737206!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x50af1f8c10d58d13!2sLABFORTRAINING!5e0!3m2!1sit!2sit!4v1662302625027!5m2!1sit!2sit" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h1>Contattaci</h1>
+                <p>Hai bisogno di informazioni? Compila il form ed inviaci subito la tua richiesta</p>
+                <p class="msg"></p>
+                <label for="name">Nome</label>
+                <input type="text" placeholder="Inserisci il tuo nome (Max 15 caratteri)" id="name" name="name">
+                <label for="surname">Cognome</label>
+                <input type="text" placeholder="Inserisci il tuo cognome (Max 15 caratteri)" id="surname" name="surname">
+                <label for="newemail3">Email</label>
+                <input type="email" placeholder="Inserisci la tua email" id="newemail3" name="newemail3">
+                <label for="tel">Telefono</label>
+                <object>
+                    <select>
+                        <option>+39</option>
+                        <option>+33</option>
+                        <option>+30</option>
+                        <option>+385</option>
+                        <option>+41</option>
+                    </select>
+                    <input type="tel" placeholder="Inserisci il tuo numero di telefono" id="tel" name="tel">
+                </object>        
+                <label for="message">Messaggio</label>
+                <textarea name="message" rows="8" placeholder="Inserisci qui il tuo messaggio (Max 500 caratteri)" id="message" name="message" maxlength="500" required></textarea>              
+                <div class="policy">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eaque delectus modi neque, fuga dolore doloremque, corrupti, unde minus perspiciatis saepe adipisci reprehenderit fugit eveniet illum. Natus porro distinctio dicta!
+                    Itaque, illum excepturi quod saepe delectus alias aliquam veniam atque ipsam nulla reprehenderit veritatis pariatur blanditiis at, esse quisquam laborum quae fugit eius inventore earum impedit quos! Voluptates, voluptate necessitatibus!
+                    Vero nulla, molestiae libero provident harum optio ipsa quasi deleniti sit illum. Odio quia laudantium tempore impedit perspiciatis, ad neque iure, aperiam est aliquid et ullam. In eos porro atque!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam eaque delectus modi neque, fuga dolore doloremque, corrupti, unde minus perspiciatis saepe adipisci reprehenderit fugit eveniet illum. Natus porro distinctio dicta!
+                    Itaque, illum excepturi quod saepe delectus alias aliquam veniam atque ipsam nulla reprehenderit veritatis pariatur blanditiis at, esse quisquam laborum quae fugit eius inventore earum impedit quos! Voluptates, voluptate necessitatibus!
+                    Vero nulla, molestiae libero provident harum optio ipsa quasi deleniti sit illum. Odio quia laudantium tempore impedit perspiciatis, ad neque iure, aperiam est aliquid et ullam. In eos porro atque!</div>
+                <span><input type="checkbox" name="privacy" required> Accetto l'informativa sulla Privacy</span>
+                
+                <button type="submit">Invia</button>
+            </form>
+
+            <h3>Designed by Agostino Feliciani in <span class="labtv-color">LABFORTRAINING</span>school ©Copyright 2022. Project inspired by original <a href="https://www.primevideo.com" target="_blank">Amazon Prime Video</a> website, ©1996-2022 Amazon.com</h3>
+            <a href="https://www.linkedin.com/company/labfortraining/" target="_blank"><div class="icon">c</div></a>
+            <a href="https://www.facebook.com/labfortraining" target="_blank"><div class="icon">b</div></a>
+            <a href="https://twitter.com/LABFORtraining?s=20&t=292KPIf4tg_197FBxru0sg" target="_blank"><div class="icon">d</div></a>
+        </footer>
+    </main>    
+</html>
+

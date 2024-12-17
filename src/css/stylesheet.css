@@ -1,0 +1,820 @@
+/*#region font personalizzato + utilizzo tecnica icon-fonts */
+
+@font-face{
+    font-family: 'amazon-ember';
+    src: url('./../../multimedia/font/amazon-ember/Amazon\ Ember\ V2.ttf');
+}
+
+/*Creo il mio pacchetto di icone per il sito*/
+@font-face {
+    font-family: 'labtv';
+    src: url('./../../multimedia/font/font/labtv.eot?6864620');
+    src: url('./../../multimedia/font/font/labtv.eot?6864620#iefix') format('embedded-opentype'),
+         url('./../../multimedia/font/font/labtv.woff2?6864620') format('woff2'),
+         url('./../../multimedia/font/font/labtv.woff?6864620') format('woff'),
+         url('./../../multimedia/font/font/labtv.ttf?6864620') format('truetype'),
+         url('./../../multimedia/font/font/labtv.svg?6864620#labtv') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/*#endregion font personalizzato + utilizzo tecnica icon-fonts */
+
+*{
+    box-sizing: border-box;
+    font-family:'amazon-ember', Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    --primary-color: #F0513D; /*Cambia qui il colore primario del sito*/
+    --hover-primary-color: #bb3725; 
+}
+
+main[role=main]{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    
+}
+
+.icon{ /* Creo una classe icon per evitare conflitti tra i due font-face */
+    font-family: 'labtv';
+    z-index: 2;
+    color: #F2F4F6;
+    cursor: pointer;
+}
+
+div.icon::after{ /*hack per centrare verticalmente gli icon-font con altezza 100% nei loro contenitori*/
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+body{
+    background-color: #0F171E;
+}
+
+h3{
+    color: #F2F4F6;
+    font-size: 16px;
+    font-weight: lighter;
+    text-align: left;
+    width: 1600px;
+    margin: 0 auto;
+    padding: 10px 50px;
+}
+
+span.labtv-color{
+    font-size: 22px;
+}
+
+.labtv-color{
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right:0.5em;
+}
+
+/*#region HEADER*/
+
+header{
+    display: flex;
+    width: 100%;
+    height: 90px;
+    background-color: #1A2430;
+    position: fixed;   
+    box-shadow:-1px 7px 6px 0px rgba(19, 19, 27, 0.116);
+    z-index: 6;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+}
+
+#menu{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1em;
+}
+
+#menu li a{
+    text-decoration:none;
+    color: #F2F4F6;  
+    font-size: 17px;
+    opacity: 95%;
+    cursor: pointer;  
+}
+
+#menu li a:hover{
+    opacity: .8;
+}
+
+#logo{
+    margin: 0 50px;
+}
+
+#logo img{
+    width: 100%;
+    height: 50px;
+}
+
+/*#endregion HEADER*/
+
+/*#region GESTIONE SLIDER*/
+
+#slider-container{
+    flex-wrap: wrap;
+    width: 100%;
+    height: 37vh;
+    margin-bottom: 1em;
+    margin-top: 80px;
+    position: relative;
+}
+
+#slider{
+    max-width: 1600px;
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+#slider img{
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#slider .visible{
+    left: 0;
+    transition:400ms;
+}
+
+#slider .next{
+    left: 100%;
+    transition: 0s;
+}
+
+#slider .slide-previous{
+    transition: 400ms;
+    left:-100%;
+}
+
+/*#region GESTIONE NAVIGATOR*/
+
+div .arrow{
+    position: absolute;
+    font-size: 34px;
+    height: 100%;
+    padding: 0 10px;  
+    text-shadow: 1px 0px 4px rgba(32, 37, 39, 1);
+    z-index: 5;
+}
+
+#slider-container div:nth-child(1), .slider-video div:nth-child(1){     
+    left: 0;
+}
+
+#slider-container div:nth-child(2), .slider-video div:nth-child(2){
+    right: 0;
+}
+
+.previous{
+    display: none;
+}
+
+.previous:hover{
+    background: linear-gradient(270deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6570177023121387) 72%, rgba(0,0,0,0.8101968930635838) 100%);
+}
+
+.next:hover{
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6570177023121387) 72%, rgba(0,0,0,0.8101968930635838) 100%); 
+}
+
+#navigator{
+    margin: 0 auto;
+    list-style: none;
+    position: absolute;
+    left: 45%; 
+    bottom: 3%;
+    min-width: 10%;
+    color: #F2F4F6;
+    z-index: 2; 
+}
+
+#navigator li:nth-child(6){
+    margin-right: none;
+}
+
+#navigator li{
+    text-shadow: 1px 0px 4px rgba(32, 37, 39, 1);
+    float: left;
+    margin-right:8px;
+    font-size: 13px;
+    opacity: 50%;
+}
+
+#navigator .focus{
+    opacity: 1;
+}
+
+/*#endregion GESTIONE NAVIGATOR*/
+
+/*#endregion GESTIONE SLIDER*/
+
+/*#region GESTIONE SLIDER VIDEO*/
+
+.slider-video{
+    width: 100%;
+    position: relative;
+    height: 222px;
+    overflow: hidden;
+    display: flex;
+}
+
+.slider-video:hover{
+    overflow: visible;
+}
+
+/*#region GESTIONE CARD*/
+
+.slider-video .card-container{ 
+    width: 100%;
+    padding: 0 0.5em;
+    height: 168px;
+    color: #fff;
+    background: none;
+    position: absolute;
+    bottom: 0;
+    transition: 800ms;
+    display: flex;
+    justify-content: center;
+    padding: 0 10%;
+    gap: 0.5em;
+}
+
+.slider-video .card-container.next{
+    left: 100%;
+    transition: 800ms;
+    z-index: 4;
+    display: none;
+    opacity: 0;
+}
+
+.slider-video  .card-container a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.slider-video .card{
+    min-width: 300px;
+    max-width: 300px;
+    height: 165px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 0.5em;
+    overflow: hidden;
+}
+
+.slider-video .card:hover{
+    max-height: none;
+    overflow: visible;
+    z-index: 4;
+    width: 320px;
+}
+
+.slider-video .card img{
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.slider-video .card:hover > .videocontainer{
+    transform: scale(1.1);
+    z-index: 3;
+    box-shadow: 10px 14px 100px 16px rgba(0, 0, 0, 0.62);
+    border: 3px ridge var(--primary-color);
+}
+
+/*#region GESTIONE TRAILER*/
+
+video{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: none;
+}
+
+.slider-video .card :hover > video{
+    display: block;
+    position: absolute;
+    top: 0;
+}
+
+.videocontainer{
+    border-radius: 5px;
+    cursor: pointer;
+    background: #1A2430;
+    transition: 300ms;
+    position: relative;
+}
+
+/*#endregion GESTIONE TRAILER*/
+
+h5{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.videocontainer .icon{
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #fff;
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: lighter;
+    text-indent: 3px;
+    width: 40px;
+    height: 40px;
+    padding-bottom: 2px;
+    border-radius: 50%;
+    margin: 10px 0;
+    transition: 350ms;
+}
+
+.videocontainer .icon:hover:not(div.icon.audio){
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.videocontainer span{
+    margin-left: 0.5em;
+}
+
+.sinox-container{
+    padding: 20px;
+}
+
+.sinox-container p{
+    font-size: 12px;
+}
+
+div.icon.audio{
+    position: absolute;
+    right: 1em;
+    z-index: 1;
+    background-color: #1a243093;
+    width: 38px;
+    height: 38px;
+    font-size: 1.2em;
+    text-align: center;
+    text-indent: 0;
+    padding: 0;
+    border: none;
+    opacity: 0;
+}
+
+.slider-video .card :hover > div.icon.audio{
+    opacity: 1;
+    transition: 0;
+}
+
+/*#endregion GESTIONE CARD*/
+
+/*#endregion GESTIONE SLIDER VIDEO*/
+
+/*#region GESTIONE FOOTER*/
+
+footer{
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #1A2430;
+    
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+footer h3{
+    margin-top: 1em;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+}
+
+footer div.icon{
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 2em;
+    font-size: 1.5em;
+    transition: 200ms;
+}
+
+footer div.icon:hover{
+    background: var(--primary-color);;
+}
+
+/*#endregion GESTIONE FOOTER*/
+
+/*#region GESTIONE FINESTRA LOGIN con tecnica "TARGET"*/
+
+
+
+ul.target{
+    list-style: none;
+}
+
+ul.target article{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+
+ul.target article .login-container{
+    top: 40px;
+    display: none;
+    opacity: 0;
+    margin: 0 auto;
+    min-width: 500px;
+    max-width: 50%;
+    color: #fff;
+    background-color: #1A2430; 
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.342);
+    border-radius: 3px;
+    border: 1px solid #0F171E;
+    transition: 250ms;
+    position: relative;
+}
+
+.login-container h1{
+    margin-top: 1em;
+    font-size: 2.5em;
+    font-weight: lighter;
+}
+
+.login-container p{
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+form input{
+    outline:none;
+    border: none;
+    padding: 3px; 
+}
+
+form button{
+    margin: 1em 0;
+    padding: 3px;
+    width: 50%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+#popup-container article form a{
+    color: var(--primary-color);
+}
+
+#popup-container article form a:hover{
+    text-decoration: underline;
+}
+
+ul.target a.icon{
+    color: #fff;
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+}
+
+ul.target li:target article{
+    display: block;
+}
+
+ul.target li:target article .login-container, ul.target li:target form{
+    opacity: 1;
+    display: grid;
+    grid-template-rows: 1fr 0.5fr 5fr;
+    text-align: center;
+}
+
+ul.target article div.back{
+    width: 100%;
+    height: 3000px;
+    background-color: rgba(0, 0, 0, 0.438);
+    position: absolute;
+    display: none;
+}
+
+ul.target li:target div.back{
+    display: block;
+}
+
+#login, #new-account{
+    width: 100%;
+    display: flex;
+    gap: 0.5em;
+    flex-direction: column;
+    padding: 5% 20%;
+}
+
+#login label, #new-account label{
+    text-align: left;
+}
+
+#login button, #new-account button{
+    align-self: center;
+    margin-bottom: 50px;
+}
+
+#new-account span, .policy{
+    width: 75%;
+    min-width: 280px;
+    align-self: center;
+    display: flex;
+    gap: 1em;
+}
+
+.policy{
+    margin-top: 1em;
+    height: 100px;
+    text-align: left;
+    color: #0F171E;
+    background: #fff;
+    overflow: auto;
+}
+
+#new-account{
+    display: none;
+}
+
+.error{
+    position: absolute;
+    opacity: 0;
+    padding: 5px;
+    color: #fff00f;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/*componente spinner importato + utilizzo di autoprefixer*/
+.spinner{
+    position: absolute;
+    bottom: 90px;
+    -ms-grid-column-align: center;
+        justify-self: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: -o-radial-gradient(farthest-side,#91ff47 94%,#0000) top/9px 9px no-repeat,
+    conic-gradient(#0000 30%,#91ff47);
+    background: radial-gradient(farthest-side,#91ff47 94%,#0000) top/9px 9px no-repeat,
+    conic-gradient(#0000 30%,#91ff47);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+    -webkit-animation: spinner-c7wet2 1s infinite linear;
+            animation: spinner-c7wet2 1s infinite linear;
+    display: none;
+ }
+ 
+ @keyframes spinner-c7wet2 {
+    100% {
+       transform: rotate(1turn);
+    }
+ }
+
+/*#endregion GESTIONE FINESTRA LOGIN con tecnica "TARGET"*/
+
+/*#region GESTIONE FORM CONTATTI*/
+
+
+#contatti{
+    margin: 2em 0;
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    opacity: 0;
+    transition: 500ms;
+}
+
+#contatti > *, object > *{
+    outline: none;
+}
+
+#contatti >*:not(p, iframe){
+    width: 30%;
+    min-width: 300px;
+}
+
+#contatti object{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 15% 85%;
+}
+
+#contatti label{
+    margin-top: 10px;
+}
+
+#contatti h1, #contatti p{
+    margin: 1em 0;
+    text-align: center;     
+}
+
+#contatti button, #contatti span{
+    width: 20%;
+    text-align: center;
+}
+
+.policy{
+    margin: 2em 0;
+    color:#1A2430;
+    font-size: 12px;
+    height: 80px;
+}
+
+#contatti iframe{
+    width: 100%;
+}
+
+#contatti .msg{
+    color: #fff00f;
+    font-size: 18px;
+    opacity: 0;
+    transition: 300ms;
+}
+
+/*#endregion GESTIONE FORM CONTATTI*/
+
+/*#region GESTIONE PAGINA EPISODI*/
+
+#container{
+    margin-top: 80px;
+    background-image: url("../../multimedia/img/episodes/cover-1.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    position: relative;
+}
+
+#cover >*{
+    color: #F2F4F6;
+    font-size: 17px;
+}
+
+#cover{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: relative;
+    background: rgb(255,255,255);
+    background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(160,164,169,0) 0%, rgba(97,104,112,0) 12%, rgba(52,61,72,0.7042206554878049) 39%, rgba(37,46,58,1) 82%, rgba(26,36,48,1) 100%);
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+#cover select{
+    outline: none;
+    width: 150px;
+    height: 48px;
+    text-align: center;
+    background-color: #425265;
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+#cover select:hover{
+    background-color: #111920;
+}
+
+#cover img{
+    height: 97px;
+    width: 600px;
+}
+
+#cover p:not(.btn-cover p){
+    width: 50%;
+}
+
+.btn-cover{
+    width: 242px;
+    height: 67px;
+    margin-top: 1em;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.btn-cover:hover{
+    background-color: var(--hover-primary-color);
+}
+
+.btn-cover .icon{
+    text-align: center;
+    font-size: 33px;
+    height: 100%;
+    width: 66px;
+    float: left;
+}
+
+.btn-cover p{
+    float: left;
+    font-size:15px;
+    padding: 10px;
+}
+
+.episodes{
+    display: flex;
+    max-width: 1500px;
+    height: 1000px;
+    margin: 2em auto;
+    gap: 0.5em;
+    flex-direction: column;
+    color:#6A8286;
+    font-size:17px;
+}
+
+.box-episodes{
+    border-radius: 5px;
+    width: 100%;
+    min-height: 206px;
+    background-color: #19232C;
+    display: flex;
+    cursor: pointer;
+}
+
+.box-episodes:hover .title{
+    transform: translate(0px);
+}
+
+.episodes h2, .episodes span{
+    color: #F2F4F6;
+    font-weight: lighter;
+}
+
+.box-episodes img{
+   float: left;
+   z-index: 2;
+}
+
+.box-episodes .icon{
+    background-color: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 22px;
+    border-radius: 50%;
+    line-height: 50px;
+    text-indent: 3px;
+    transition: 100ms;
+}
+
+.box-episodes .icon:hover{
+    background-color: var(--hover-primary-color);
+}
+
+.box-episodes .title{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    gap: 1em;
+    margin: 1em;
+    transition: 500ms;
+    transform: translate(-70px);
+}
+
+.box-episodes p{
+    width: 100%;
+    flex-wrap: wrap;
+    margin-left: 1em;
+    padding-right: 1em;
+}
+
+/*#endregion GESTIONE PAGINA EPISODI*/
